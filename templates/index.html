@@ -1,0 +1,81 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Text Art Generator</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .loader {
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+            display: none; /* Hidden by default */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -25px 0 0 -25px; /* Position the loader */
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5 mb-4">
+        <h2>Image Text Art Generator</h2>
+        <form method="POST" action="/" enctype="multipart/form-data" onsubmit="showLoading()">
+            <div class="form-group">
+                <label>Upload Image</label>
+                <input type="file" name="image" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Text</label>
+                <textarea name="text" class="form-control" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Font Family</label>
+                <select name="font_family" class="form-control">
+                    <option value="Arial">Arial</option>
+                    <option value="Papyrus">Papyrus</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Font Size Scalar</label>
+                <select name="font_scalar" class="form-control">
+                    <option value="0.01">0.01</option>
+                    <option value="0.02">0.02</option>
+                    <option value="0.03">0.03</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Generate</button>
+        </form>
+        <!-- Spinner -->
+        <div class="loader" id="loader"></div>
+
+        {% if original_image %}
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <h3>Original Image</h3>
+                <img src="{{ original_image }}" alt="Original Image" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h3>Generated Image</h3>
+                <img src="{{ generated_image }}" alt="Generated Image" class="img-fluid">
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        function showLoading() {
+            document.getElementById('loader').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
