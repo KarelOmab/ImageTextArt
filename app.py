@@ -60,7 +60,7 @@ def create_text_image(image_path, text, font_name, font_scalar):
 
     # Save or display the resulting image
     #new_image.show()  # or new_image.save('output.jpg')
-    new_image.save('output.png')
+    #new_image.save('output.png')
     return original_image, new_image
 
 @app.route('/', methods=['GET', 'POST'])
