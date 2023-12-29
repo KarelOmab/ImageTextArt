@@ -1,4 +1,4 @@
-from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageStat
+from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageStat #pip install Pillow==9.3.0
 import io
 from base64 import b64encode
 
