@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from PIL import Image, ImageDraw, ImageFont, ImageOps
+from PIL import Image, ImageDraw, ImageFont, ImageOps   #pip install Pillow==9.3.0
 import os
 import io
 from base64 import b64encode
